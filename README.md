@@ -19,6 +19,8 @@ $ docker image tag consumer-app:latest localhost:5000/consumer-app:latest
 $ docker image push localhost:5000/consumer-app:latest
 $ kubectl delete -f consumer/misc/k8s/04-deployment.yml
 $ kubectl apply -f consumer/misc/k8s/04-deployment.yml
+$ kubectl delete -f consumer/misc/k8s/05-service.yml
+$ kubectl apply -f consumer/misc/k8s/05-service.yml
 
 $ docker image rm -f producer-app
 $ docker build -f Dockerfile_Producer -t producer-app .

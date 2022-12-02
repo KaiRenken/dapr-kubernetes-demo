@@ -15,6 +15,6 @@ COPY producer/src src
 
 # Build artifact
 RUN ./mvnw package -DskipTests
-RUN mv target/*.jar target/producer-app.jar
+RUN mv target/*jar-with-dependencies.jar target/producer-app.jar
 
 ENTRYPOINT ["java","-jar","target/producer-app.jar"]

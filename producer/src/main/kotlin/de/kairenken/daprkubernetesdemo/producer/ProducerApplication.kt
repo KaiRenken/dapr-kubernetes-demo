@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     val requestBody = "test-string"
 
     val request = HttpRequest.newBuilder()
-        .uri(URI.create("http://localhost:8080/log"))
+        .uri(URI.create("http://consumer-app:80/log"))
         .POST(HttpRequest.BodyPublishers.ofString(requestBody))
         .build()
 
