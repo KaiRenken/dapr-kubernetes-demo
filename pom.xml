@@ -11,4 +11,9 @@
     <name>dapr-kubernetes-demo</name>
     <description>dapr-kubernetes-demo</description>
 
+    <modules>
+        <module>consumer</module>
+        <module>producer</module>
+    </modules>
+
 </project>
