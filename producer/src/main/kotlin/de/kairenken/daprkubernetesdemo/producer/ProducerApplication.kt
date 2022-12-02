@@ -7,7 +7,7 @@ import java.net.http.HttpResponse
 
 class ProducerApplication
 
-fun main() {
+fun main(args: Array<String>) {
     val client = HttpClient.newBuilder().build()
 
     val requestBody = "test-string"
