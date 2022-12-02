@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: receiver-app
+    labels:
+        app: receiver-app
+    namespace: stage-dev
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: receiver-app
+    template:
+        metadata:
+            labels:
+                app: receiver-app
+        spec:
+            containers:
+                - name: receiver-app
+                  image: localhost:5000/myadmin/receiver-app:latest
+                  imagePullPolicy: Always
