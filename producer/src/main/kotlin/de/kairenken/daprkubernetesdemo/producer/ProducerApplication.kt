@@ -1,4 +1,4 @@
-package de.kairenken
+package de.kairenken.daprkubernetesdemo.producer
 
 import java.net.URI
 import java.net.http.HttpClient
@@ -18,7 +18,7 @@ fun main() {
         .build()
 
     while (true) {
-        val response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        val response = client.send(request, HttpResponse.BodyHandlers.ofString())
         println(response.body())
 
         Thread.sleep(3000L)

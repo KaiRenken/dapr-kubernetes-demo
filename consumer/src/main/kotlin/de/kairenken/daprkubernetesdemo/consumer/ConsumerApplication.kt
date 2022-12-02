@@ -1,11 +1,11 @@
-package de.kairenken.daprkubernetesdemo
+package de.kairenken.daprkubernetesdemo.consumer
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class DaprKubernetesDemoApplication
+class ConsumerApplication
 
 fun main(args: Array<String>) {
-    runApplication<DaprKubernetesDemoApplication>(*args)
+    runApplication<ConsumerApplication>(*args)
 }

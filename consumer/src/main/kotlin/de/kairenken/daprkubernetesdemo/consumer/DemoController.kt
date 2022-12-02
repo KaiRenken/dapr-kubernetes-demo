@@ -1,4 +1,4 @@
-package de.kairenken.daprkubernetesdemo
+package de.kairenken.daprkubernetesdemo.consumer
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
