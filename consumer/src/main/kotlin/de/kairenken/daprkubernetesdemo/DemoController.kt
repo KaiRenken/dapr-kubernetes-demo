@@ -11,7 +11,9 @@ class DemoController {
 
     @PostMapping("/log")
     fun log(@RequestBody content: String): ResponseEntity<String> {
+
         println(content)
+
         return ResponseEntity<String>(content, HttpStatus.OK)
     }
 }
