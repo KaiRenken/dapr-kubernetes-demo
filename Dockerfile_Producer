@@ -1,0 +1,20 @@
+FROM eclipse-temurin:19-focal
+
+COPY mvnw .
+COPY .mvn .mvn
+COPY producer/pom.xml .
+
+# Maven should be executable
+RUN chmod +x ./mvnw
+
+# Download dependencies if needed (i.e. pom has changed)
+RUN ./mvnw dependency:go-offline -B
+
+# Copy application sources to docker build stage
+COPY producer/src src
+
+# Build artifact
+RUN ./mvnw package -DskipTests
+RUN mv target/*.jar target/producer-app.jar
+
+ENTRYPOINT ["java","-jar","target/producer-app.jar"]
