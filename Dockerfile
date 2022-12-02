@@ -1,8 +1,8 @@
 FROM eclipse-temurin:19-focal
 
-COPY ../../mvnw .
-COPY ../../.mvn .mvn/
-COPY ../../pom.xml .
+COPY mvnw .
+COPY .mvn .mvn
+COPY consumer/pom.xml .
 
 # Maven should be executable
 RUN chmod +x ./mvnw
@@ -11,7 +11,7 @@ RUN chmod +x ./mvnw
 RUN ./mvnw dependency:go-offline -B
 
 # Copy application sources to docker build stage
-COPY src src
+COPY consumer/src src
 
 # Build artifact
 RUN ./mvnw package -DskipTests
