@@ -14,6 +14,11 @@ spec:
         metadata:
             labels:
                 app: consumer-app
+            annotations:
+                dapr.io/enabled: "true"
+                dapr.io/app-id: "consumer-app"
+                dapr.io/app-port: "8080"
+                dapr.io/enable-api-logging: "true"
         spec:
             containers:
                 - name: consumer-app
