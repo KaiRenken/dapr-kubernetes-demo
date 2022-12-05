@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
             .build()
 
         val response = client.send(request, HttpResponse.BodyHandlers.ofString())
-        println(response.body())
+        println(response.body() + " " + counter)
 
         Thread.sleep(3000L)
 

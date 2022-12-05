@@ -6,7 +6,7 @@ metadata:
         app: consumer-app
     namespace: stage-dev
 spec:
-    replicas: 3
+    replicas: 1
     selector:
         matchLabels:
             app: consumer-app
