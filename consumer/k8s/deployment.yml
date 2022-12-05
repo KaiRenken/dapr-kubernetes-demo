@@ -6,7 +6,7 @@ metadata:
         app: consumer-app
     namespace: stage-dev
 spec:
-    replicas: 1
+    replicas: 3
     selector:
         matchLabels:
             app: consumer-app
@@ -24,3 +24,8 @@ spec:
                 - name: consumer-app
                   image: localhost:5000/consumer-app:latest
                   imagePullPolicy: Always
+                  env:
+                      - name: CONSUMER_POD_NAME
+                        valueFrom:
+                            fieldRef:
+                                fieldPath: metadata.name

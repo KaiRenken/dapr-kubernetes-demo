@@ -12,7 +12,7 @@ class DemoController {
     @PostMapping("/log")
     fun log(@RequestBody content: String): ResponseEntity<String> {
 
-        println(content)
+        println("Received message: '${content}' at Consumer-Pod: ${System.getenv("CONSUMER_POD_NAME")}")
 
         return ResponseEntity<String>(content, HttpStatus.OK)
     }

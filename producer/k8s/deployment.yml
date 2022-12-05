@@ -23,3 +23,8 @@ spec:
                 - name: producer-app
                   image: localhost:5000/producer-app:latest
                   imagePullPolicy: Always
+                  env:
+                      - name: PRODUCER_POD_NAME
+                        valueFrom:
+                            fieldRef:
+                                fieldPath: metadata.name
