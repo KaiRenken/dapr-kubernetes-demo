@@ -1,8 +1,7 @@
 ## Dapr-Kubernetes-Demo Application
 
 This demo application consists of a spring boot application (the consumer) that takes messages and logs them and a
-and a producer application that sends a test string to the consumer every 3 seconds.
-The apps communicate via dapr
+and a producer application that sends a test string to the consumer every 3 seconds. The apps communicate via dapr.
 
 ### Prerequisities
 
