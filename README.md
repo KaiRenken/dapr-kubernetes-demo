@@ -41,3 +41,12 @@ $ docker image push localhost:5000/producer-app:latest
 $ kubectl delete -f producer/k8s/deployment.yml
 $ kubectl apply -f producer/k8s/deployment.yml
 ```
+
+#### Configure custom resiliency policy
+
+``` shell
+$ kubectl apply -f k8s/resiliency.yml
+```
+
+_Note_: A retry of the message delivery is only triggered when the consumer-app does not respond at all. Responses like a
+status 503 (service unavailable) do not trigger a redelivery!

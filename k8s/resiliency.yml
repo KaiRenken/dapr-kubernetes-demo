@@ -1,0 +1,34 @@
+apiVersion: dapr.io/v1alpha1
+kind: Resiliency
+metadata:
+  name: myresiliency
+# similar to subscription and configuration specs, scopes lists the Dapr App IDs that this
+# resiliency spec can be used by.
+scopes:
+  - consumer-app
+  - producer-app
+spec:
+  # policies is where timeouts, retries and circuit breaker policies are defined.
+  # each is given a name so they can be referred to from the targets section in the resiliency spec.
+  policies:
+    # timeouts are simple named durations.
+    timeouts:
+      general: 60s
+
+    # retries are named templates for retry configurations and are instantiated for life of the operation.
+    retries:
+      retryForever:
+        policy: constant
+        duration: 5s
+        maxRetries: -1 # retry indefinitely
+
+  # targets are what named policies are applied to. Dapr supports 3 target types - apps, components and actors
+  targets:
+    apps:
+      consumer-app:
+        timeout: general
+        retry: retryForever
+
+      producer-app:
+        timeout: general
+        retry: retryForever
